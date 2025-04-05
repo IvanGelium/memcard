@@ -1,0 +1,194 @@
+[date-theme='light'] {
+  --body-BGC: rgb(174, 216, 230);
+  --header-BGC: rgb(156, 206, 222);
+  --header-BS: rgb(62, 137, 137);
+  --card-BGC: rgb(225, 242, 249);
+  --text-color: rgba(0, 0, 0, 0.841);
+  --theme-color: rgb(246, 255, 253);
+}
+
+[date-theme='dark'] {
+  --body-BGC: #111;
+  --header-BGC: #222;
+  --header-BS: #333;
+  --card-BGC: #666;
+  --text-color: rgb(231, 218, 119);
+  --theme-color: rgb(86, 86, 107);
+}
+
+* {
+  transition: linear 0.1s;
+}
+
+body {
+  background-color: var(--body-BGC);
+}
+
+#header {
+  display: flex;
+  background-color: var(--header-BGC);
+  align-content: center;
+  justify-content: space-between;
+  padding: 1rem;
+  z-index: 10;
+  box-shadow: inset 0px -4px 0px var(--header-BS);
+  color: var(--text-color);
+}
+
+#headLeft {
+  display: flex;
+  gap: 2rem;
+}
+
+#sideCont {
+  display: flex;
+  gap: 5rem;
+  text-align: center;
+}
+
+#scoreCont {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+#themeBut {
+  background-color: var(--theme-color);
+  padding: 0.5rem;
+  border-radius: 100%;
+  width: fit-content;
+  height: fit-content;
+}
+
+#buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: white;
+}
+
+.button {
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  outline-offset: -1px;
+  font-weight: bold;
+}
+
+#easy {
+  background-color: rgb(0, 194, 0);
+}
+
+#medium {
+  background-color: rgb(174, 174, 0);
+}
+
+#hard {
+  background-color: rgb(196, 0, 0);
+}
+
+#insane {
+  background-color: rgb(99, 0, 191);
+}
+#easy:hover,
+#medium:hover,
+#hard:hover,
+#insane:hover {
+  background-color: blue;
+  color: white;
+}
+#cardField {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  width: 12vw;
+  height: 12vw;
+  background-color: var(--card-BGC);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.load {
+  width: 20%;
+  height: 20%;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline-offset: -4px;
+  outline: 3px solid var(--header-BS);
+}
+
+.rotator {
+  width: 50%;
+  height: 50%;
+  background-color: var(--card-BGC);
+  border-radius: 100% 0% 0% 0%;
+  animation: rotate 2s infinite ease;
+  transform-origin: right bottom;
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(2turn);
+  }
+}
+@media (max-width: 900px) {
+  #header {
+    width: 100vw;
+    flex-direction: column;
+    gap: 1rem;
+    position: fixed;
+  }
+
+  #headLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  #buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .button {
+    width: fit-content;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+  }
+
+  #sideCont {
+    justify-content: space-between;
+  }
+
+  #themeBut {
+    color: 'white';
+    padding: '0.5rem';
+    border-radius: '0.5rem';
+    width: fit-content;
+  }
+
+  #cardField {
+    position: relative;
+    top: 10rem;
+    justify-content: center;
+  }
+
+  .card {
+    min-width: 240px;
+    min-height: 240px;
+  }
+}
