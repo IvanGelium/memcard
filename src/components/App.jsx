@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useEffect } from 'react'
 import '../styles/App.css'
 import ThemeBut from './themeButton'
+import Card from './card'
+import logic from '../logic'
 
 document
   .querySelector('body')
@@ -9,6 +12,11 @@ document
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
   document.querySelector('body').setAttribute('date-theme', theme)
+  const [diff, setDiff] = useState(4)
+  const [AL, setAL] = useState(logic.initApeList(diff))
+  useEffect(() => {
+    setAL(AL)
+  }, [AL])
 
   return (
     <div>
@@ -38,48 +46,7 @@ function App() {
           <ThemeBut theme={theme} setTheme={setTheme} />
         </div>
       </div>
-      <div id="cardField">
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-        <div className="card">
-          <div className="load">
-            <div className="rotator"></div>
-          </div>
-        </div>
-      </div>
+      <div id="cardField">{AL}</div>
     </div>
   )
 }
