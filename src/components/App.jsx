@@ -90,7 +90,7 @@ const winArray = please()
 
 function App() {
   const [score, setScore] = useState(0)
-  const [theme, setTheme] = useState(localStorage.getItem('dark'))
+  const [theme, setTheme] = useState('dark')
   document.querySelector('body').setAttribute('date-theme', theme)
   //
   const [diff, setDiff] = useState('легко')
