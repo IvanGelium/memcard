@@ -1,7 +1,7 @@
 [date-theme='light'] {
   --body-BGC: rgb(174, 216, 230);
   --header-BGC: rgb(156, 206, 222);
-  --header-BS: rgb(62, 137, 137);
+  --header-BS: rgb(148, 195, 195);
   --card-BGC: rgb(225, 242, 249);
   --text-color: rgba(0, 0, 0, 0.841);
   --theme-color: rgb(246, 255, 253);
@@ -29,6 +29,17 @@ body {
   background-color: var(--header-BGC);
   align-content: center;
   justify-content: space-between;
+  padding: 1rem;
+  z-index: 10;
+  box-shadow: inset 0px -4px 0px var(--header-BS);
+  color: var(--text-color);
+}
+
+#header2 {
+  display: flex;
+  background-color: var(--header-BGC);
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
   z-index: 10;
   box-shadow: inset 0px -4px 0px var(--header-BS);
@@ -74,28 +85,32 @@ body {
   font-weight: bold;
 }
 
-#easy {
+#легко {
   background-color: rgb(0, 194, 0);
 }
 
-#medium {
+#средне {
   background-color: rgb(174, 174, 0);
 }
 
-#hard {
+#трудно {
   background-color: rgb(196, 0, 0);
 }
 
-#insane {
+#псих {
   background-color: rgb(99, 0, 191);
 }
-#easy:hover,
-#medium:hover,
-#hard:hover,
-#insane:hover {
+#легко:hover,
+#средне:hover,
+#трудно:hover,
+#псих:hover {
   background-color: blue;
   color: white;
 }
+.chosenOne {
+  outline: 2px dotted white;
+}
+
 #cardField {
   padding: 2rem;
   display: flex;
@@ -155,6 +170,13 @@ body {
 
 @media (max-width: 900px) {
   #header {
+    width: 100vw;
+    flex-direction: column;
+    gap: 1rem;
+    position: fixed;
+  }
+
+  #header2 {
     width: 100vw;
     flex-direction: column;
     gap: 1rem;
